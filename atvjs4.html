@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 4</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+
+    .painel-cores {
+      border: 1px solid #ccc;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .painel-cores h3 {
+      margin: 0 0 16px 0;
+      font-size: 16px;
+    }
+
+    .caixas {
+      display: flex;
+      gap: 12px;
+    }
+
+    .caixa {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: opacity 0.2s;
+    }
+
+    .caixa:hover {
+      opacity: 0.8;
+    }
+
+    .paragrafos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 900px;
+    }
+
+    .paragrafo {
+      border: 1px solid #ccc;
+      padding: 14px;
+      line-height: 1.6;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="painel-cores">
+    <h3>Opções de cores</h3>
+    <div class="caixas">
+      <div class="caixa" style="background-color:#c0392b;"
+           onmouseover="aplicarCor('red', 'paragrafo1')"></div>
+
+      <div class="caixa" style="background-color:#5dade2;"
+           onmouseover="aplicarCor('skyblue', 'paragrafo2')"></div>
+
+      <div class="caixa" style="background-color:#f0b429;"
+           onmouseover="aplicarCor('gold', 'paragrafo3')"></div>
+
+      <div class="caixa" style="background-color:#27ae60;"
+           onmouseover="aplicarCor('lightgreen', 'paragrafo4')"></div>
+    </div>
+  </div>
+
+  <div class="paragrafos">
+    <div class="paragrafo" id="paragrafo1">
+      1- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+      tempor incididunt ut labore et dolore magna aliqua. Velit euismod in 
+      pellentesque massa placerat duis ultricies lacus sed.
+    </div>
+
+    <div class="paragrafo" id="paragrafo2">
+      2- Orci ac auctor augue mauris augue. Habitant morbi tristique senectus et netus. 
+      Viverra orci sagittis eu volutpat odio facilisis mauris sit. Lacus luctus accumsan 
+      tortor posuere ac. Curabitur vitae nunc sed velit. Amet nisl purus in mollis nunc. 
+      Arcu dui vivamus arcu felis bibendum ut.
+    </div>
+
+    <div class="paragrafo" id="paragrafo3">
+      3- Sed felis eget velit aliquet sagittis id consectetur. Venenatis tellus in metus 
+      vulputate eu scelerisque felis. Nulla facilisi etiam dignissim diam quis enim lobortis 
+      scelerisque. Et ligula ullamcorper malesuada proin libero.
+    </div>
+
+    <div class="paragrafo" id="paragrafo4">
+      4- Nibh venenatis cras sed felis eget. Diam ut venenatis tellus in metus vulputate eu 
+      scelerisque felis. Cras ornare arcu dui vivamus arcu. Dignissim diam quis enim lobortis 
+      scelerisque fermentum.
+    </div>
+  </div>
+
+  <script>
+    function aplicarCor(cor, idParagrafo) {
+      document.getElementById(idParagrafo).style.backgroundColor = cor;
+    }
+  </script>
+
+</body>
+</html>
