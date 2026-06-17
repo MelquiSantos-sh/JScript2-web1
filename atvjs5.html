@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 5</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+
+    .orcamento {
+      border: 1px solid #ccc;
+      padding: 20px 24px;
+      max-width: 750px;
+    }
+
+    .orcamento h2 {
+      margin: 0 0 20px 0;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .linha {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .linha label {
+      font-size: 14px;
+    }
+
+    .linha input {
+      padding: 6px 8px;
+      font-size: 14px;
+      border: 1px solid #999;
+      border-radius: 3px;
+    }
+
+    #inputItem {
+      width: 160px;
+    }
+
+    #inputValor,
+    #inputQuantidade {
+      width: 80px;
+    }
+
+    .btn-calcular {
+      padding: 6px 14px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid #999;
+      background-color: #f0f0f0;
+      border-radius: 3px;
+    }
+
+    .btn-calcular:hover {
+      background-color: #ddd;
+    }
+
+    #resultado {
+      padding: 6px 18px;
+      background-color: #a9d18e;
+      border: 1px solid #6aaa3a;
+      border-radius: 3px;
+      font-size: 15px;
+      font-weight: bold;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    #msg-erro {
+      color: red;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orcamento">
+    <h2>Orçamento</h2>
+
+    <div class="linha">
+      <label>Item:</label>
+      <input type="text" id="inputItem" placeholder="ex: Leite" />
+
+      <label>valor:</label>
+      <input type="number" id="inputValor" placeholder="0.00" step="0.01" min="0" />
+
+      <label>quantidade:</label>
+      <input type="number" id="inputQuantidade" placeholder="1" min="1" />
+
+      <button class="btn-calcular" onclick="calcularTotal()">=</button>
+
+      <div id="resultado">R$ 0.00</div>
+    </div>
+
+    <div id="msg-erro"></div>
+  </div>
+
+  <script>
+    function calcularTotal() {
+      const valor = parseFloat(document.getElementById('inputValor').value);
+      const quantidade = parseInt(document.getElementById('inputQuantidade').value);
+      const msgErro = document.getElementById('msg-erro');
+
+      if (isNaN(valor) || isNaN(quantidade)) {
+        msgErro.textContent = 'Preencha o valor e a quantidade corretamente.';
+        return;
+      }
+
+      if (valor < 0 || quantidade < 1) {
+        msgErro.textContent = 'Valor e quantidade devem ser positivos.';
+        return;
+      }
+
+      msgErro.textContent = '';
+      const total = valor * quantidade;
+      document.getElementById('resultado').textContent =
+        'R$ ' + total.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
