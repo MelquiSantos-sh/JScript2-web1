@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+
+    .painel-cores {
+      border: 1px solid #ccc;
+      padding: 16px;
+      width: 280px;
+      margin-bottom: 20px;
+    }
+
+    .painel-cores h3 {
+      margin: 0 0 16px 0;
+      font-size: 16px;
+    }
+
+    .caixa {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .caixa-vermelha {
+      background-color: #c0392b;
+    }
+
+    .paragrafo-1 {
+      border: 1px solid #ccc;
+      padding: 16px;
+      max-width: 500px;
+      line-height: 1.6;
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="painel-cores">
+    <h3>Opções de cores</h3>
+    <div
+      class="caixa caixa-vermelha"
+      onmouseover="aplicarCor('red')"
+    ></div>
+  </div>
+
+  <div class="paragrafo-1" id="paragrafo1">
+    1- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+    tempor incididunt ut labore et dolore magna aliqua. Velit euismod in 
+    pellentesque massa placerat duis ultricies lacus sed.
+  </div>
+
+  <script>
+    function aplicarCor(cor) {
+      document.getElementById('paragrafo1').style.backgroundColor = cor;
+    }
+  </script>
+
+</body>
+</html>
