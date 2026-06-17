@@ -1,0 +1,59 @@
+CTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      transition: background-color 0.3s;
+    }
+ 
+    p {
+      max-width: 500px;
+      line-height: 1.6;
+    }
+ 
+    .botoes {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+ 
+    button {
+      padding: 8px 16px;
+      cursor: pointer;
+      border: 1px solid #999;
+      background-color: #f0f0f0;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+ 
+    button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+ 
+  <p>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+    Fuga corporis qui illum porro atque quae omnis earum, 
+    molestiae aliquid voluptatum esse asperiores, quia ipsum.
+  </p>
+ 
+  <div class="botoes">
+    <button onclick="mudarCor('blue')">azul</button>
+    <button onclick="mudarCor('lightgreen')">verde claro</button>
+    <button onclick="mudarCor('red')">vermelho</button>
+  </div>
+ 
+  <script>
+    function mudarCor(cor) {
+      document.body.style.backgroundColor = cor;
+    }
+  </script>
+ 
+</body>
+</html>
