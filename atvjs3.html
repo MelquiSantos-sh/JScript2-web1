@@ -4,64 +4,71 @@
   <meta charset="UTF-8">
   <title>Exercício 3</title>
   <style>
+    /* ===== Estilos (CSS) ===== */
+ 
     body {
       font-family: Arial, sans-serif;
       padding: 30px;
     }
-
-    .painel-cores {
+ 
+    .painel-cores {              /* Caixa que funciona como "painel de opções" */
       border: 1px solid #ccc;
       padding: 16px;
       width: 280px;
       margin-bottom: 20px;
     }
-
-    .painel-cores h3 {
-      margin: 0 0 16px 0;
+ 
+    .painel-cores h3 {           /* Só vale para o título <h3> que estiver dentro de .painel-cores */
+      margin: 0 0 16px 0;        /* Ordem: cima, direita, baixo, esquerda — só sobra espaço embaixo */
       font-size: 16px;
     }
-
-    .caixa {
+ 
+    .caixa {                     /* Caixinha quadrada e colorida que dispara a mudança de cor */
       width: 50px;
       height: 50px;
       cursor: pointer;
       border-radius: 4px;
     }
-
-    .caixa-vermelha {
+ 
+    .caixa-vermelha {            /* Classe extra: soma-se a .caixa, pintando-a de vermelho */
       background-color: #c0392b;
     }
-
-    .paragrafo-1 {
+ 
+    .paragrafo-1 {                /* O parágrafo que vai mudar de cor */
       border: 1px solid #ccc;
       padding: 16px;
       max-width: 500px;
       line-height: 1.6;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s; /* Troca de cor suave */
     }
   </style>
 </head>
 <body>
-
+ 
   <div class="painel-cores">
     <h3>Opções de cores</h3>
+    <!-- onmouseover = dispara sozinho quando o mouse TOCA na caixinha, sem precisar clicar -->
     <div
       class="caixa caixa-vermelha"
       onmouseover="aplicarCor('red')"
     ></div>
   </div>
-
+ 
   <div class="paragrafo-1" id="paragrafo1">
+    <!-- id="paragrafo1": nome único, usado pelo JavaScript para encontrar este parágrafo -->
     1- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
     tempor incididunt ut labore et dolore magna aliqua. Velit euismod in 
     pellentesque massa placerat duis ultricies lacus sed.
   </div>
-
+ 
   <script>
+    // ===== JavaScript =====
+ 
     function aplicarCor(cor) {
+      // Procura o elemento com id="paragrafo1" e pinta o fundo dele com a cor recebida
       document.getElementById('paragrafo1').style.backgroundColor = cor;
     }
   </script>
-
+ 
 </body>
 </html>
