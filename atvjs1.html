@@ -1,59 +1,74 @@
-CTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Exercício 1</title>
+!DOCTYPE html>
+<!-- Aviso ao navegador: esta página usa HTML5. (No arquivo original essa linha veio
+     cortada, faltando o "<!DO" do começo — aqui ela já está corrigida). -->
+<html lang="pt-br"> <!-- Caixa que guarda a página inteira. lang="pt-br" = o texto está em português do Brasil -->
+<head> <!-- Bastidores da página: nada aqui dentro aparece desenhado na tela -->
+  <meta charset="UTF-8"> <!-- Usa o alfabeto certo, para acentos (ç, ã, é) aparecerem corretamente -->
+  <title>Exercício 1</title> <!-- Texto que aparece na aba do navegador -->
   <style>
+    /* ===== Estilos (CSS) — a "roupa" da página ===== */
+ 
     body {
-      font-family: Arial, sans-serif;
-      padding: 30px;
-      transition: background-color 0.3s;
+      font-family: Arial, sans-serif;     /* Tipo de letra usado em toda a página */
+      padding: 30px;                      /* Espaço vazio entre o conteúdo e a borda da janela */
+      transition: background-color 0.3s;  /* Quando a cor de fundo mudar, faz isso suavemente (0.3s) em vez de trocar de repente */
     }
  
     p {
-      max-width: 500px;
-      line-height: 1.6;
+      max-width: 500px;  /* O texto não fica mais largo que 500px */
+      line-height: 1.6;  /* Espaço extra entre as linhas, para facilitar a leitura */
     }
  
-    .botoes {
-      margin-top: 20px;
-      display: flex;
-      gap: 10px;
+    .botoes {            /* Estilo para qualquer elemento com class="botoes" */
+      margin-top: 20px;  /* Espaço acima da caixa de botões */
+      display: flex;     /* Coloca os botões em fileira, lado a lado */
+      gap: 10px;          /* Espaço entre cada botão */
     }
  
     button {
-      padding: 8px 16px;
-      cursor: pointer;
-      border: 1px solid #999;
-      background-color: #f0f0f0;
-      font-size: 14px;
-      border-radius: 4px;
+      padding: 8px 16px;          /* Espaço interno do botão (entre o texto e a borda) */
+      cursor: pointer;            /* Mouse vira uma "mãozinha" ao passar por cima do botão */
+      border: 1px solid #999;     /* Borda fina cinza */
+      background-color: #f0f0f0;  /* Fundo cinza claro */
+      font-size: 14px;             /* Tamanho da letra dentro do botão */
+      border-radius: 4px;          /* Cantinhos arredondados */
     }
  
-    button:hover {
-      background-color: #ddd;
+    button:hover {                /* Só vale enquanto o mouse estiver em cima do botão */
+      background-color: #ddd;     /* Fundo fica um pouco mais escuro */
     }
   </style>
 </head>
-<body>
+<body> <!-- A partir daqui começa o que aparece desenhado na tela -->
  
   <p>
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
     Fuga corporis qui illum porro atque quae omnis earum, 
     molestiae aliquid voluptatum esse asperiores, quia ipsum.
   </p>
+  <!-- Texto de exemplo (preenchimento em latim de brincadeira), só para testar o layout -->
  
-  <div class="botoes">
+  <div class="botoes"> <!-- Caixa que agrupa os três botões em fileira -->
     <button onclick="mudarCor('blue')">azul</button>
+    <!-- Ao clicar: chama mudarCor() entregando a palavra 'blue' -->
+ 
     <button onclick="mudarCor('lightgreen')">verde claro</button>
+    <!-- Ao clicar: chama mudarCor() entregando 'lightgreen' -->
+ 
     <button onclick="mudarCor('red')">vermelho</button>
+    <!-- Ao clicar: chama mudarCor() entregando 'red' -->
   </div>
  
   <script>
+    // ===== JavaScript — o "robozinho" que reage aos cliques =====
+ 
     function mudarCor(cor) {
+      // 'cor' é o valor que veio do botão clicado (ex: 'blue', 'red'...)
       document.body.style.backgroundColor = cor;
+      // Pega a página inteira (document.body) e troca a cor de fundo dela
     }
   </script>
  
 </body>
 </html>
+ 
