@@ -4,50 +4,52 @@
   <meta charset="UTF-8">
   <title>Exercício 5</title>
   <style>
+    /* ===== Estilos (CSS) ===== */
+ 
     body {
       font-family: Arial, sans-serif;
       padding: 30px;
     }
-
-    .orcamento {
+ 
+    .orcamento {                  /* Caixa principal que envolve toda a calculadora */
       border: 1px solid #ccc;
       padding: 20px 24px;
       max-width: 750px;
     }
-
+ 
     .orcamento h2 {
       margin: 0 0 20px 0;
       font-size: 22px;
       font-weight: bold;
     }
-
-    .linha {
+ 
+    .linha {                      /* Fileira com os campos: item, valor, quantidade, botão, resultado */
       display: flex;
-      align-items: center;
+      align-items: center;        /* Alinha tudo no centro verticalmente */
       gap: 10px;
-      flex-wrap: wrap;
+      flex-wrap: wrap;            /* Quebra para a próxima linha se não houver espaço */
     }
-
+ 
     .linha label {
       font-size: 14px;
     }
-
+ 
     .linha input {
       padding: 6px 8px;
       font-size: 14px;
       border: 1px solid #999;
       border-radius: 3px;
     }
-
+ 
     #inputItem {
-      width: 160px;
+      width: 160px;   /* Caixinha do nome do item é mais larga */
     }
-
+ 
     #inputValor,
     #inputQuantidade {
-      width: 80px;
+      width: 80px;    /* Caixinhas de número são mais estreitas */
     }
-
+ 
     .btn-calcular {
       padding: 6px 14px;
       font-size: 16px;
@@ -57,22 +59,22 @@
       background-color: #f0f0f0;
       border-radius: 3px;
     }
-
+ 
     .btn-calcular:hover {
       background-color: #ddd;
     }
-
-    #resultado {
+ 
+    #resultado {                       /* Caixinha verde que mostra o total calculado */
       padding: 6px 18px;
       background-color: #a9d18e;
       border: 1px solid #6aaa3a;
       border-radius: 3px;
       font-size: 15px;
       font-weight: bold;
-      min-width: 100px;
+      min-width: 100px;                /* Garante espaço mesmo com números pequenos */
       text-align: center;
     }
-
+ 
     #msg-erro {
       color: red;
       font-size: 13px;
@@ -81,50 +83,65 @@
   </style>
 </head>
 <body>
-
+ 
   <div class="orcamento">
     <h2>Orçamento</h2>
-
+ 
     <div class="linha">
       <label>Item:</label>
       <input type="text" id="inputItem" placeholder="ex: Leite" />
-
+      <!-- Caixinha de texto livre para o nome do item -->
+ 
       <label>valor:</label>
       <input type="number" id="inputValor" placeholder="0.00" step="0.01" min="0" />
-
+      <!-- Só aceita número. step="0.01" permite centavos. min="0" não deixa digitar negativo -->
+ 
       <label>quantidade:</label>
       <input type="number" id="inputQuantidade" placeholder="1" min="1" />
-
+      <!-- Só aceita número inteiro. min="1" não deixa digitar zero ou negativo -->
+ 
       <button class="btn-calcular" onclick="calcularTotal()">=</button>
-
+      <!-- Ao clicar, chama a função calcularTotal() -->
+ 
       <div id="resultado">R$ 0.00</div>
+      <!-- Mostra o total. Começa em "R$ 0.00" e é atualizado pelo JavaScript -->
     </div>
-
+ 
     <div id="msg-erro"></div>
+    <!-- Caixinha vazia, reservada para mensagens de erro -->
   </div>
-
+ 
   <script>
+    // ===== JavaScript =====
+ 
     function calcularTotal() {
+      // parseFloat: transforma o texto digitado em número COM casas decimais (ex: "2.50" -> 2.5)
       const valor = parseFloat(document.getElementById('inputValor').value);
+ 
+      // parseInt: transforma o texto digitado em número INTEIRO (sem casas decimais)
       const quantidade = parseInt(document.getElementById('inputQuantidade').value);
+ 
       const msgErro = document.getElementById('msg-erro');
-
+ 
       if (isNaN(valor) || isNaN(quantidade)) {
+        // isNaN = "não é um número". Se valor OU quantidade não forem números válidos:
         msgErro.textContent = 'Preencha o valor e a quantidade corretamente.';
-        return;
+        return; // Para a função aqui
       }
-
+ 
       if (valor < 0 || quantidade < 1) {
+        // Mesmo sendo números, eles precisam fazer sentido (nada de negativo ou zero itens)
         msgErro.textContent = 'Valor e quantidade devem ser positivos.';
         return;
       }
-
-      msgErro.textContent = '';
-      const total = valor * quantidade;
+ 
+      msgErro.textContent = '';            // Limpa qualquer mensagem de erro antiga
+      const total = valor * quantidade;     // Calcula o total da compra
       document.getElementById('resultado').textContent =
         'R$ ' + total.toFixed(2);
+      // toFixed(2) garante sempre 2 casas decimais (ex: 7.5 -> "7.50"), como se escreve dinheiro
     }
   </script>
-
+ 
 </body>
 </html>
